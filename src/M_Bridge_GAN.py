@@ -5,7 +5,6 @@ df=pd.read_pickle("data/WM811K.pkl")
 
 #list the field name of the structure
 df.info()
-
 def normalize_label(x):
     # 리스트, 튜플, 넘파이 배열이면 첫 번째 요소만 사용
     if isinstance(x, (list, tuple, np.ndarray)):
@@ -300,7 +299,7 @@ for epoch in range(EPOCHS):
     history['basic model Loss'].append(basic_mode_loss) 
     history['Adversarial mediator Loss'].append(Adversarial_mediator_loss)
     print(f" Test Loss - basic model: {basic_mode_loss:.4f}, Adversarial mediator: {Adversarial_mediator_loss:.4f}")
-    
+# plt는 basic model 과의 비교 목적    
 plt.plot(range(1,len(history['basic model Loss'])+1),history['basic model Loss'], label='basic model Loss')
 plt.plot(range(1,len(history['Adversarial mediator Loss'])+1),history['Adversarial mediator Loss'], label='Adversarial mediator Loss')
 plt.xlabel('Epochs')
